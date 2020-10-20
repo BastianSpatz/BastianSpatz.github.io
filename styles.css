@@ -1,175 +1,139 @@
 /*Global Styles*/
-*,
-*::before,
-*::after{
+*{
 	margin: 0;
 	padding: 0;
-	box-sizing: inherit;
+	box-sizing: border-box;
 }
 
 html{
 	font-family: 'Nunito', sans-serif;
 	font-size: 10px;
-	box-sizing: border-box;
 }
 
 a{
 	text-decoration: none;
 }
 
-ul{
-	list-style: none;
-}
-
-p{
-	font-size: 1.6rem;
-}
-
-img{
+.container{
+	min-height: 100vh;
 	width: 100%;
-	max-width: 100%;
-	height: auto;
+	align-items: center;
+	justify-content: center;
+	display: flex;
 }
 
-section{
-	padding: 5rem 0;
-}
-
-
-/*header*/
-header{
-	width: 100%;
-	height: 5rem;
-	position: absolute;
-	top: 0;
-	left: 0;
+/*Hero Section*/
+#hero{
+	background-image: url("img/alt-hero-bg.jpg");
+	background-size: cover;
+	background-position: top center;
+	position: relative;
 	z-index: 1;
 }
 
-.container{
-	width: 100%;
-	max-width: 98rem;
-	margin: 0 auto;
-	padding: 0 1.5rem;
-}
-
-nav{
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 1rem 0;
-	border-bottom: 1px solid rgba(255, 255, 255, .2);
-}
-
-.nav-brand{
-	width: 2rem;
-}
-
-.menu-icons i{
-	font-size: 3.5rem;
-	color: #fafafa;
-	cursor: pointer;
-}
-
-.close i{
-	color: #eb648c;
-}
-
-.nav-list{
-	width: 25rem;
-	height: 100vh;
-	background-color: #d7d4ed;
-	position: fixed;
-	top: 0;
-	right: -26rem;
-	/*choose negativ value to hide navbar*/
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	z-index: 1500;
-	transition: all 650ms ease-in-out;
-}
-
-.nav-list.active{
-	right: 0;
-}
-
-.close{
-	position: absolute;
-	top: 1rem;
-	left: 1.5rem;
-}
-
-.nav_item{
-	margin: 1.5rem 0;
-}
-
-.nav-link{
-	font-size: 1.6rem;
-	text-transform: uppercase;
-	color: rgba(0, 0, 0, .7);
-}
-
-/*hero section*/
-.hero{
-	width: 100%;
-	height: 80vh;
-/*	background: linear-gradient(135deg, rgba(49, 24, 131, 0.9) 0%, rgba(72, 56, 149, 0.8) 100%), 
-		url("img/hero-bg.jpg") center no-repeat;
-*/	
-	background: linear-gradient(90deg, rgba(51,53,142,0.7) 0%, rgba(45,51,51,0.6) 100%),
-		url("img/hero-bg.jpg") center no-repeat;
-	background-size: cover;
-	position: relative;
-}
-
-/*right know this is a background wave*/
-/*.hero::before{
-	content: "";
+#hero::after{
+	content: '';
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	top: 0;
+	height: 100%,
 	width: 100%;
-	height: 30.4rem;
-	background: url("img/wave_01.png") center no-repeat;
-	background-size: cover;
-}*/
-
-.main-message{
-	width: 100%;
-	max-width: 50rem;
-	color: #fafafa;
-	text-transform: uppercase;
-	transform: translateY(20%);
+	background-color: black;
+	opacity: 0.6;
+	z-index: -1;
 }
 
-.main-message h3{
-	font-size: 1.6rem;
+#hero .hero{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px;
+	justify-content: flex-start;
 }
 
-.main-message h1{
-	font-family: 'Aldrich', sans-serif;
+#hero h1{
+	display: block;
+	width: fit-content;
 	font-size: 4rem;
-	margin: 1rem 0;
+	position: relative;
+	color: transparent;
+	animation: text_reveal .5s ease forwards;
+	animation-delay: 1s;
 }
 
-.main-message p{
-	text-transform: lowercase;
+#hero h1:nth-child(1){
+	animation-delay: 1s;
+}
+#hero h1:nth-child(2){
+	animation-delay: 2s;
+}
+#hero h1:nth-child(3){
+	animation: text_reveal_name .5s ease forwards;
+	animation-delay: 3s;
 }
 
-.btn{
-	background-color: #eb648c;
-	border-radius: 2rem;
-	color: #fafafa;
+#hero h1 span{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: crimson;
+	animation: text_reveal_box 1s ease;
+	animation-delay: .5s;
+}
+
+#hero h1:nth-child(1) span{
+	animation-delay: .5s
+}
+#hero h1:nth-child(2) span{
+	animation-delay: 1.5s
+}
+#hero h1:nth-child(3) span{
+	animation-delay: 2.5s
+}
+
+#hero .cta{
 	display: inline-block;
-	margin-top: 2rem;
-	padding: 1rem 2.5rem;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	font-size: 2rem;
+	border: 2px solid crimson;
 	text-transform: uppercase;
-	transition: background-color 650ms;
+	letter-spacing: .1rem;
+	margin-top: 30px;
+	transition: 650ms ease;
+	transition-property: background-color, color;
+
 }
 
-.btn:hover{
-	background-color: #ce587b;
+#hero .cta:hover{
+	color: white;
+	background-color: crimson;
+}
+
+/*KeyFrames*/
+@keyframes text_reveal_box{
+	50%{
+		width: 100%;
+		left: 0;
+	}
+	100%{
+		width: 0;
+		left: 100%;
+	}
+
+}
+
+@keyframes text_reveal{
+	100%{
+		color: white;
+	}
+}
+
+@keyframes text_reveal_name{
+	100%{
+		color: crimson;
+		font-weight: 50px
+	}
 }
