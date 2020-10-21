@@ -17,10 +17,10 @@ a{
 
 .container{
 	min-height: 100vh;
+	display: flex;
 	width: 100%;
 	align-items: center;
 	justify-content: center;
-	display: flex;
 }
 
 img{
@@ -92,7 +92,7 @@ p{
 	transition: .3s ease background-color;
 }
 
-#header .navbar{
+#header .nav-bar{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
